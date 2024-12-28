@@ -6,30 +6,29 @@ import "./globals.css";
 
 export default function RootLayout({ children }) {
   useEffect(() => {
-    const setDynamicHeight = () => {
+    const setFullHeight = () => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     };
 
-    // Set on load
-    setDynamicHeight();
+    setFullHeight();
+    window.addEventListener("resize", setFullHeight);
 
-    // Update on resize
-    window.addEventListener("resize", setDynamicHeight);
-
-    // Cleanup on unmount
     return () => {
-      window.removeEventListener("resize", setDynamicHeight);
+      window.removeEventListener("resize", setFullHeight);
     };
   }, []);
+
   return (
     <html lang="fa" dir="rtl">
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-      />
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+      </head>
       <body className="m-auto max-w-[500px] overflow-x-hidden">
-        <div className=" w-full h-screen">
+        <div className="w-full" style={{ height: "calc(var(--vh) * 100)" }}>
           <Provider store={store}>{children}</Provider>
         </div>
       </body>

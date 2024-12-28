@@ -1,0 +1,12 @@
+.swiper-pagination {
+    @apply flex justify-center space-x-2 ;
+  }
+  
+  .swiper-pagination-bullet {
+    @apply  !bg-[#023047] rounded-full transition duration-300;
+  }
+  
+  .swiper-pagination-bullet-active {
+    @apply !bg-secondaryColor scale-125;
+  }
+  

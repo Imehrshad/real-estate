@@ -1,18 +1,27 @@
 "use client";
-import {
-  addAnswer,
-  increaseSteps,
-  startQuestion,
-} from "@/redux/features/questionSlice";
+import { addAnswer, increaseSteps } from "@/redux/features/questionSlice";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const page = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
+  const state = useSelector((state) => state.question);
+  const checkQuestionStarted = () => {
+    if (!state.isStarted) {
+      router.push("/");
+    }
+  };
   const clickHandler = (value) => {
     dispatch(increaseSteps());
     dispatch(addAnswer(value));
   };
+  useEffect(() => {
+    checkQuestionStarted();
+  }, []);
+
   return (
     <div className="w-full h-full flex justify-start items-center flex-col gap-3 no-select">
       <div className="relative w-full">

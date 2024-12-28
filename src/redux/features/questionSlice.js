@@ -24,7 +24,7 @@ const questionSlice = createSlice({
     },
     startQuestion: (state) => {
       state.isStarted = true;
-      state.step += 1;
+      state.step = 0;
     },
     addAnswer: (state, action) => {
       state.usersAnswers.push(action.payload);

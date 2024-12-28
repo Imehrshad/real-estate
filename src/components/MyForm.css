@@ -1,0 +1,12 @@
+.react-international-phone-input {
+  border: none !important;
+  width: 100% !important;
+  background-color: transparent !important;
+}
+.react-international-phone-country-selector-button {
+  border: none !important;
+  outline: none !important;
+}
+.react-international-phone-country-selector-dropdown{
+    @apply rounded-2xl p-2 !-left-3
+}

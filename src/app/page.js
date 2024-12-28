@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={`relative w-full h-full no-select `}>
+    <div className=" w-full h-full no-select overflow-hidden relative">
       <Link
         href="/"
         className="flex justify-start items-center gap-2 absolute top-[3%] left-[5%]"
@@ -18,22 +18,26 @@ export default function Home() {
         src="/images/backgroundelements.jpg"
         className=" -z-20 h-[100%] w-[150%] absolute -top-10 left-0 "
       />
-      {/* <span
-        className="w-3/12 h-[35%] bg-white absolute m-auto left-0 bottom-0 "
-        style={{
-          clipPath: "polygon(0 25%, 100% 0%, 100% 100%, 0% 100%)",
-        }}
-      ></span> */}
-
-      <LeftSideSvg className="w-full absolute right-0 bottom-0 md:h-[55%]" />
-      <MohseSaneiSvg className="absolute  bottom-[35%] "/>
-      <p className="lg:text-[0.92rem] text-[0.8rem] w-3/4 absolute bottom-[25%] right-[5%]">
-        «لطفاً برای کمک به ما در ارائه خدمات بهتر، چند سوال کوتاه درباره نیازها
-        و ترجیحات خود در زمینه املاک پاسخ دهید.»
-      </p>
-      <StartButton />
-      <span className="left-1/2 -translate-x-1/2 bottom-3 text-primaryColor lg:text-sm text-[0.8rem] absolute whitespace-nowrap flex gap-1">
-        مدت زمان پاسخگویی به سوالات <p className="font-iransansNum font-bold"> 30 </p> ثانیه
+      <img
+        src="/images/shape1.svg"
+        className="yellow-shape md:w-[80%] w-[85%] absolute lg:-bottom-[15%] md:-bottom-[3%] bottom-0 "
+      />
+      {/* <LeftSideSvg className="w-full absolute right-0 bottom-0 md:h-[55%] landscape:h-full landscape:lg:h-[55%]  " /> */}
+      <div className="yellow-container absolute right-0 w-[75%] h-[44%] lg:h-[45%] md:h-[48%] bottom-0 flex justify-start items-center flex-col gap-8 ">
+        <MohseSaneiSvg className=" self-start " />
+        <p className=" px-3 w-full text-[0.85rem] ">
+          «لطفاً برای کمک به ما در ارائه خدمات بهتر، چند سوال کوتاه درباره
+          نیازها و ترجیحات خود در زمینه املاک پاسخ دهید.»
+        </p>
+        <StartButton />
+      </div>
+      <img
+        src="images/shape2.svg"
+        className="blue-shape w-full absolute -bottom-[5%] "
+      />
+      <span className="left-1/2 -translate-x-1/2 bottom-3 text-primaryColor lg:text-sm md:text-[0.8rem] text-[0.7rem] absolute whitespace-nowrap flex gap-1">
+        مدت زمان پاسخگویی به سوالات{" "}
+        <p className="font-iransansNum font-bold"> 30 </p> ثانیه
       </span>
     </div>
   );

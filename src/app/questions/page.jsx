@@ -1,13 +1,18 @@
+"use client";
 import NextQuestion from "@/components/NextQuestion";
 import PercentageIndicator from "@/components/PercentageIndicator";
 import ProgressBar from "@/components/ProgressBar";
 import Questions from "@/components/Questions";
 import QuestionsHeader from "@/components/QuestionsHeader";
+import { useState } from "react";
 
 const page = () => {
+  const [selectedItem, setSelectedItem] = useState("");
+
+
   return (
-    <div className="w-full h-full no-select">
-      <div className="flex justify-between items-center py-8">
+    <div className="w-full h-full no-select relative">
+      <div className="flex justify-between items-center py-3">
         <svg
           width="94"
           height="84"
@@ -49,15 +54,21 @@ const page = () => {
         <ProgressBar />
       </div>
       <div className="w-full px-8 py-5 relative">
-        <Questions />
+        <Questions
+          selectedItem={selectedItem}
+          setSelectedItem={setSelectedItem}
+        />
         <div className="relative w-full">
           <span className="w-full h-52 bg-primaryColor opacity-30 absolute rounded-2xl scale-90 left-1/2 -translate-x-1/2 -bottom-5 -z-10"></span>
           <span className="w-full h-52 bg-primaryColor opacity-50 absolute rounded-2xl scale-[0.83] left-1/2 -translate-x-1/2 -bottom-9 -z-10"></span>
           <span className="w-full h-52 bg-primaryColor opacity-30 absolute rounded-2xl scale-[0.73] left-1/2 -translate-x-1/2 -bottom-14 -z-10"></span>
         </div>
       </div>
-      <div className=" px-8 py-2 flex justify-center items-center w-full mt-10">
-        <NextQuestion />
+      <div className=" px-8 py-2 flex  bottom-3 justify-center items-center w-full mt-10 absolute">
+        <NextQuestion
+          selectedItem={selectedItem}
+          setSelectedItem={setSelectedItem}
+        />
       </div>
     </div>
   );

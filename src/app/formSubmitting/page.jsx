@@ -1,17 +1,26 @@
 "use client";
-
 import MyForm from "@/components/MyForm";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
 
 const page = () => {
   const formRef = useRef();
+  const state = useSelector((state) => state.question);
   const router = useRouter();
   const submitForm = () => {
     formRef.current.submitForm();
   };
+  useEffect(() => {
+    if (!state.isStarted) {
+      router.push("/");
+    }
+  }, []);
+
   return (
-    <div className=" no-select w-full h-full flex justify-between items-center flex-col relative">
+    <div className=" no-select w-full h-full  flex justify-between items-center flex-col relative">
       <img
         src="/images/form submitting/backgroundImage.png"
         alt="تصویر پس زمینه"

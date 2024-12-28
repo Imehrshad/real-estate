@@ -23,13 +23,83 @@
 }
 
 body {
-  height: var(--vh, 100vh);
+  height: 100dvh;
   font-family: "IranSansBold";
   padding: 0;
 }
 .no-select {
-  user-select: none; 
+  user-select: none;
   -webkit-user-select: none;
-  -moz-user-select: none; 
-  -ms-user-select: none; 
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.CircularProgressbar-text {
+  font-family: "IranSansNum", sans-serif !important;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Media queries ordered from largest min-height to smallest */
+
+/* Large screen */
+@media (orientation: landscape) and (min-height: 500px) {
+  .yellow-shape {
+    width: 65%;
+    bottom: -50% !important;
+  }
+  .blue-shape {
+    bottom: -10% !important;
+  }
+  .yellow-container {
+    height: 50% !important;
+  }
+}
+
+/* Medium screen */
+@media (orientation: landscape) and (min-height: 420px) {
+  .yellow-shape {
+    width: 65%;
+    bottom: -70% !important;
+  }
+  .blue-shape {
+    bottom: -17% !important;
+  }
+  .yellow-container {
+    height: 61% !important;
+  }
+}
+
+/* Smaller screen */
+@media (orientation: landscape) and (min-height: 350px) {
+  .yellow-shape {
+    width: 65%;
+    bottom: -75% !important;
+  }
+  .blue-shape {
+    bottom: -20% !important;
+  }
+  .yellow-container {
+    height: 73% !important;
+  }
+  .yellow-container p {
+    font-size: 0.78rem;
+  }
+}
+
+/* Smallest screen */
+@media (orientation: landscape) and (min-height: 300px) {
+  .yellow-shape {
+    width: 65%;
+    bottom: -110% !important;
+  }
+  .blue-shape {
+    bottom: -20% !important;
+  }
+  .yellow-container {
+    height: 73% !important;
+    gap: 1rem !important;
+  }
+  .yellow-container p {
+    font-size: 0.7rem;
+  }
 }

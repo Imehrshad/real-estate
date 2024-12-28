@@ -11,6 +11,7 @@ const QuestionsHeader = () => {
   const clickHandler = () => {
     if (state.step === 1) {
       router.push("/twoOption");
+      dispatch(decreaseSteps());
     } else {
       dispatch(decreaseSteps());
     }

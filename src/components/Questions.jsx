@@ -1,15 +1,22 @@
 "use client";
+
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const Questions = () => {
+const Questions = ({ selectedItem, setSelectedItem }) => {
   const state = useSelector((state) => state.question);
   const [answers, setAnswers] = useState([]);
   const [question, setQuestion] = useState("");
-  const [selectedItem, setSelectedItem] = useState("");
+
+  const router = useRouter();
+  const checkQuestionStarted = () => {
+    if (!state.isStarted) {
+      router.push("/");
+    }
+  };
 
   const questionFinder = (step) => {
-    console.log(step);
     switch (step) {
       case 1:
         setAnswers(state.answers[0].answersText);
@@ -21,7 +28,9 @@ const Questions = () => {
         return;
     }
   };
+
   useEffect(() => {
+    checkQuestionStarted();
     questionFinder(state.step);
   }, [state]);
 
